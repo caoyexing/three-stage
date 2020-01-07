@@ -1,9 +1,9 @@
-import React from 'react-dom'
-import { Fragment } from 'react'
-class Admin extends Comment {
+import React, { Component } from 'react'
+
+class Admin extends Component {
     render() {
         return (
-            <div></div>
+            <div> Admin</div>
         )
     }
 }
