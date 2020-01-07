@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import styles from './login.module.less'
 import {UserLogin} from '../../api/user'
+import {setItem} from '../../utils/webStorage'
 import {Card,message, Form, Icon, Input, Button, Checkbox } from 'antd';
 class Login extends Component{
   // 
   login=()=>{
     let {validateFields}=this.props.form
     validateFields((err,data)=>{
-      console.log(err,data)
+      // console.log(err,data)
       // message 全局提示 message 吐丝
       message.destroy()
       if(err) return message.error('输入有误，请重新输入')
-      UserLogin().then((res)=>{
-        console.log(res)
+      let {userName,passWord} =data
+      UserLogin(userName,passWord).then((res)=>{
+        // console.log(res)
+        setItem('token',res.token)
+        setItem('uid',res.uid)
+        setItem('rootIds',res.rootList)
+        this.props.history.replace('/admin')
       })
     })
   }
@@ -26,8 +32,8 @@ class Login extends Component{
       <Card title={'请登录'} headStyle={{textAlign:"center"}} hoverable={true} className={styles['login-card']}>
       <Form.Item>
         {getFieldDecorator('userName', {
-          rules: [
-            { required: true, message: '用户名不能为空!' },
+          // [{之间有课空格的时候 会报一个警告}]
+          rules: [{required: true, message: '用户名不能为空!' },
             {min:3,message:'用户名不能小于3位'},
             {max:9,message:'用户名不能大于9位'}
           ],
