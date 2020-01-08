@@ -26,12 +26,12 @@ class HeaderNav extends Component{
         UserLogout()
         .then((res)=>{
           // clear()
-          console.log(key)
-          console.log(res)
+          // console.log(res)
           openNotificationWithIcon('success','退出成功')
         })
         .catch((err)=>{
-          console.log(err)
+          // console.log(err)
+          openNotificationWithIcon('error','退出失败请重试')
         })
         break;
     

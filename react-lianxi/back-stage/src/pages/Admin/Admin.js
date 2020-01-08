@@ -27,7 +27,8 @@ class Admin extends Component{
               <Layout>
                 <Header 
                   className={styles.header}
-                style={{ background: '#fff', padding: 0 }}>
+                  // style={{ background: '#fff', padding: 0 }}
+                  >
                   <Icon
                     className={styles.trigger}
                     type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -35,13 +36,14 @@ class Admin extends Component{
                   />
                   <HeaderNav></HeaderNav>
                 </Header>
-                <Content
-                  style={{
-                    margin: '24px 16px',
-                    padding: 24,
-                    background: '#fff',
-                    minHeight: 280,
-                  }}
+                <Content 
+                  className={styles.content}
+                  // style={{
+                  //   margin: '24px 16px',
+                  //   padding: 24,
+                  //   // background: '#fff',
+                  //   minHeight: 280,
+                  // }}
                 >
                   {this.props.children}
                 </Content>
