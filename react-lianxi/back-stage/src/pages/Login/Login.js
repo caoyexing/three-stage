@@ -13,12 +13,18 @@ class Login extends Component{
       message.destroy()
       if(err) return message.error('输入有误，请重新输入')
       let {userName,passWord} =data
-      UserLogin(userName,passWord).then((res)=>{
+      UserLogin(userName,passWord)
+      .then((res)=>{
         // console.log(res)
         setItem('token',res.token)
         setItem('uid',res.uid)
         setItem('rootIds',res.rootList)
-        this.props.history.replace('/admin')
+        message.success('登陆成功',1,()=>{
+          this.props.history.replace('/admin')
+        })
+      })
+      .catch((err)=>{
+        message.error('登陆失败请重新登陆',1)
       })
     })
   }
