@@ -14,6 +14,7 @@ class AppRouter extends Component{
         <NavLink to='/login'></NavLink>
         {/* route */}
         <Switch>
+          {/*打开页面的时候 有token进入到home页面 没有token进入到登陆页面 */}
           <Redirect exact from='/' to='/admin/home'></Redirect>
           <Route path='/login' component={Login}></Route>
           <Route path='/admin' render={()=>{

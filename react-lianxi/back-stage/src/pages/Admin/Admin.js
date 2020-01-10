@@ -47,7 +47,7 @@ class Admin extends Component{
                 >
                   {this.props.children}
                 </Content>
-              <Footer>这是底部</Footer>
+              <Footer className={styles.footer}>这是底部</Footer>
             </Layout>
           </Layout>
         )
