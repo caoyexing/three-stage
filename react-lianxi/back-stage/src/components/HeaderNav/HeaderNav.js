@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import styles from "./headerNav.module.less"
 import { Menu, Dropdown, Icon ,notification} from 'antd';
 import {UserLogout} from '../../api/user'
-// import {clear} from '../../utils/webStorage'
+import {clear} from '../../utils/webStorage'
 
 const menuData = [
   {path:'',name:'个人信息',icon:'apple'},
@@ -25,7 +25,7 @@ class HeaderNav extends Component{
       case 2:
         UserLogout()
         .then((res)=>{
-          // clear()
+          clear()
           // console.log(res)
           openNotificationWithIcon('success','退出成功')
         })
