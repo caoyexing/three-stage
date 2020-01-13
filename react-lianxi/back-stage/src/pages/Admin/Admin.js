@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import  styles from './admin.module.less'
 import { Layout, Icon } from 'antd';
 import {withRouter} from 'react-router-dom'
@@ -20,6 +20,7 @@ class Admin extends Component{
       }
     render(){
         return(
+          <Fragment>
             <Layout className={styles.admin}>
               <Sider trigger={null} collapsible collapsed={this.state.collapsed} >
               <SliderNav></SliderNav>
@@ -50,6 +51,9 @@ class Admin extends Component{
               <Footer className={styles.footer}>这是底部</Footer>
             </Layout>
           </Layout>
+          {/* 摸态框 */}
+      
+          </Fragment>
         )
     }
 }
