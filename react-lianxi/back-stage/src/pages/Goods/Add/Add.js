@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styles from './add.module.less'
 class AddGoods extends Component{
   constructor(){
@@ -10,6 +10,11 @@ class AddGoods extends Component{
       desc:'好吃',
       foodType:'热菜'
     }
+    // 为了this的指向
+    // upload=()=>{
+    //   // 获取图片
+      
+    // }
   }
   render(){
     let {name,price,desc,foodType,img}=this.state
@@ -19,6 +24,7 @@ class AddGoods extends Component{
          type='text'
          value={name}
          onChange={(e)=>{
+           //事件
            this.setState({name:e.target.value})
           console.log(e.target.value)
          }}
@@ -26,20 +32,32 @@ class AddGoods extends Component{
         <br/>
         price:<input className={styles.ipt}
           type='text'
+          value={price}
+          onChange={(e)=>{
+            this.setState({price:e.target.value})
+          }}
           
          />
         <br/>
         foodType:<input className={styles.ipt}
         type='text'
+        value={foodType}
+        onChange={(e)=>{
+          this.setState({foodType:e.target.value})
+        }}
         />
         <br/>
         desc:<input className={styles.ipt} 
         type='text'
+        value={desc}
+        onChange={(e)=>{
+          this.setState({desc:e.target.value})
+        }}
         />
         <br/>
-        img:<input className={styles.ipt} 
-        type='text'
-        />
+        图片:<input className={styles.ipt} type='file' ref='file'/>
+        <img height='100' width='100' src={img} alt=''></img>
+        <button onClick={this.upload}>上传图片</button>
       </div>
     )
   }

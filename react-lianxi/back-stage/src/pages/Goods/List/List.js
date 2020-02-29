@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react'
 import { Table, Pagination, Spin, Button, Popconfirm, message } from 'antd'
 import { GetGoods, DelData } from '../../../api/goods'
 import styles from './page.module.less'
-
-const pageSize = 3
+// 每页的条数
+const pageSize = 5
 class GoodsList extends Component {
   constructor() {
     super()
