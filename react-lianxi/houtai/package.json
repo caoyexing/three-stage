@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:react-lianxi/houtai/package.json
   "name": "houtai",
+=======
+  "name": "back",
+>>>>>>> b016956f92eeb8b7c76eddb439e6dcfade927f6b:react-lianxi/back/package.json
   "version": "0.1.0",
   "private": true,
   "dependencies": {
