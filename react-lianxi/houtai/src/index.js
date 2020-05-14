@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// 按需加载 降级 less less-loader
+// import 'antd/dist/antd.css'
+//引入的是路由的入口文件
+import App from './router/router';
 import * as serviceWorker from './serviceWorker';
-
+import { Provider } from 'react-redux'
+import store from './store/store'
 ReactDOM.render(
-  <React.StrictMode>
+ <Provider store={store}>
     <App />
-  </React.StrictMode>,
+ </Provider>
+  ,
   document.getElementById('root')
 );
 
