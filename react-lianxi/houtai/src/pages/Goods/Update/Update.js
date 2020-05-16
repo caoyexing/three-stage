@@ -1,50 +1,48 @@
 import React,{Component} from 'react'
 import style from "./add.module.less"
 import { Button, message } from 'antd'
-import {addFood} from "../../../api/goods"
-class Add extends Component{
-  constructor(){
+import {UpdateFood} from '../../../api/goods'
+
+class Update extends Component{
+  constructor(props){
     super()
-    this.state={
-      name:'紫薯',
-      price:'1',
-      desc:'紫色的',
-      img:null,
-      foodType:'根类'
-    }
+    // 在组件创建的时候将接收的props结构给state
+    this.state={...props.updateInfo}
   }
-  // 提交接口 this 指向
+  // 监听props发生改变
+  componentWillReceiveProps(props){
+    // console.log('props发生改变了',props)
+    // 将重新得到的props 赋值
+    this.setState({...props.updateInfo})
+  }
   submit=()=>{
-    if(!this.state.img) return message.info('请选择图片')
-    addFood(this.state)
+    UpdateFood(this.state)
     .then((res)=>{
       // console.log(res)
-      message.success('添加成功',1)
-    })
-    .catch((err)=>{
-      message.error('添加失败',1)
+      message.success('修改成功',1)
+      // 将页面重新刷新 props上面的方法
+      this.props.refreshList()
     })
   }
-  // 读取图片
+  // 换图片
   upload=()=>{
-    // 读取图片格式 将本地的图片的格式转为base64的格式
+    // ref 那到这个dom
     let file = this.refs.file.files[0]
-    // 判断是否选择图片
     if(!file) return message.info('请选择图片')
-    // 创建文件读取对象
     let reader = new FileReader()
-    // 将图片读成base64 格式
+    reader.readAsDataURL(file)
     reader.onload=()=>{
-      // console.log('文件读取结束',reader.result)
       this.setState({img:reader.result})
     }
-    reader.readAsDataURL(file)
   }
   render(){
+    // console.log(this.props)
     // 图片的地址  要看是什么类型的
-    let {name,price,foodType,img,desc} =this.state
+    let {_id,name,price,foodType,img,desc} =this.state
     return(
       <div className={style.main}>
+        _id:{_id}
+        <br/>
        姓名:<input type='text' value={name} onChange={(e)=>{
          this.setState({name:e.target.value})
        }}></input>
@@ -62,17 +60,16 @@ class Add extends Component{
        }}></input>
        <br/>
        {/* input 是文件格式 ref  获取图片 this.refs */}
+        <img src={img} height='100' width='200' alt=''></img>
         图片:<input type='file' ref='file' />
-        <br/>
-        <img src={img} height='100' width='100' alt=''></img>
         <button onClick={this.upload}>上传图片</button>
        <br/>
        <Button type='primary' size='large' onClick={this.submit}>
-        提交
+        修改
        </Button>
       </div>
     )
   }
  
 }
-export default Add
+export default Update

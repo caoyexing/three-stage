@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Line from '../../components/Echars/Line/Line'
 import {getItem} from '../../utils/webStorage'
 import {withRouter} from 'react-router-dom'
 class Home extends Component{
@@ -10,7 +11,8 @@ class Home extends Component{
   render(){
     return(
       <div>
-        这里是首页
+        
+        <Line></Line>
       </div>
     )
   }

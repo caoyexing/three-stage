@@ -106,6 +106,11 @@ module.exports = function(proxy, allowedHost) {
         target:'http://localhost:3004',
         changeOrigin:true,
         pathRewrite:{"^/hehe":''}
+      },
+      "/haha":{
+        target:'https://www.baidu.com',
+        changeOrigin:true,
+        pathRewrite:{"^/haha":''}
       }
     },
     before(app, server) {

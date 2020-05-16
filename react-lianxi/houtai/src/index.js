@@ -7,10 +7,16 @@ import App from './router/router';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import store from './store/store'
+import 'react-quill/dist/quill.snow.css';
+// 国际化 中文
+import {ConfigProvider} from 'antd'
+import zhCN from 'antd/es/locale/zh_CN';
 ReactDOM.render(
+  <ConfigProvider locale={zhCN}>
  <Provider store={store}>
     <App />
  </Provider>
+ </ConfigProvider>
   ,
   document.getElementById('root')
 );

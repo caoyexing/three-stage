@@ -15,7 +15,7 @@ class Login extends Component {
       let { username, password } = data
       UserLogin(username, password)
         .then((res) => {
-          console.log(res)
+          // console.log(res)
           // 将返回的数据存进去 使用localStorage的方法存进去
           setItem('token', res.token)
           setItem('uid', res.uid)
