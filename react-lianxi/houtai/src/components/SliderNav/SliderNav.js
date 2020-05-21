@@ -9,18 +9,23 @@ class SliderNav extends Component {
   constructor(){
     super()
     this.state={
-      menuData: []
+      menuData: [],
+      date:false
     }
   }
   // 请求数据
-  componentDidMount=()=>{
+  componentDidMount(){
+    // this.state.date=true
+    this.setState({state:false})
    setTimeout(() => {
       let res = {err:0,msg:'ok',rootIds:['1','2','0']}
       let result = filter(res.rootIds)
       this.setState({menuData:result})
     }, 500);
   }
- 
+ componentWillUnmount(){
+  this.setState({state:true})
+}
   // 渲染页面 判断请求的数据结构
   renderItem(data){
     // console.log(data)

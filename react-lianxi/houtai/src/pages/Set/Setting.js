@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import ReactQuill  from 'react-quill';
 class Setting extends Component {
   constructor(props) {
