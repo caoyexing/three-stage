@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Layout, Icon, Modal } from 'antd';
 import style from './admin.module.less'
-import SliderNav from '../../components/SliderNav/SliderNav'
-import HeaderNav from '../../components/HeaderNav/HeaderNav'
+import SliderNav from '@/components/SliderNav/SliderNav'
+import HeaderNav from '@/components/HeaderNav/HeaderNav'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import ActionCreator from '../../store/actionCreator'

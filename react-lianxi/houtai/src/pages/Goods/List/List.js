@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Table, Pagination, Button ,Popconfirm, message,Drawer,Spin} from 'antd'
-import { GetFoods, DelFood } from '../../../api/goods'
+import { GetFoods, DelFood } from '@/api/goods'
 import style from './list.module.less'
 import UpDate from '../Update/Update'
 const pageSize = 4

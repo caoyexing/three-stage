@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
-import Line from '../../components/Echars/Line/Line'
-import {getItem} from '../../utils/webStorage'
+import Line from '@/components/Echars/Line/Line'
+import {getItem} from '@/utils/webStorage'
 import {withRouter} from 'react-router-dom'
 class Home extends Component{
   componentDidMount(){
