@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactQuill  from 'react-quill';
+import {Button} from 'antd'
 class Setting extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +25,10 @@ class Setting extends Component {
     'list', 'bullet', 'indent',
     'link', 'image'
   ]
- 
+  // 点击事件 是这样的 不是那样的 就是这样的
+ toggle(){
+   console.log('hello')
+ }
   render() {
     return (
       <div className="text-editor">
@@ -32,6 +36,7 @@ class Setting extends Component {
                     modules={this.modules}
                     formats={this.formats}>
         </ReactQuill>
+        <Button type='primary' onClick={this.toggle}>点我</Button>
       </div>
     );
   }
