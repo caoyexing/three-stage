@@ -13,7 +13,7 @@ export default [
   },
   {
     name:'商品管理',
-    icon:'home',
+    icon:'user',
     path:'',
     id:'2',
     children:[

@@ -1,0 +1,11 @@
+.w(@px){
+  width: unit(@px/37.5,rem);
+}
+// 没有单位 使用的时候要加上单位
+.fixed(@top,@bottom,@left,@right){
+  position: fixed;
+  top: @top;
+  bottom: @bottom;
+  left: @left;
+  right: @right;
+}

@@ -25,7 +25,7 @@ class Setting extends Component {
     'list', 'bullet', 'indent',
     'link', 'image'
   ]
-  // 点击事件 是这样的 不是那样的 就是这样的
+  
  toggle(){
    console.log('hello')
  }

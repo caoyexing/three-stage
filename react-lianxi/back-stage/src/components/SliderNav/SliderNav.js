@@ -11,8 +11,11 @@ class SliderNav extends Component{
     }
   }
   componentDidMount(){
+    // 通过网络请求获得的ids 
     setTimeout(()=>{
+      // 模拟网络请求 ids
       let res={err:0,msg:'ok',token:'12313',rootIds:['0','1','2','2-0','2-1']}
+      // 将得到的ids进行过滤
       let result=filterRootList(res.rootIds)
       this.setState({menuData:result})
     },500)
