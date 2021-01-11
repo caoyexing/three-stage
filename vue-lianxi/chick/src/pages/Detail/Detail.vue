@@ -43,7 +43,7 @@ export default {
   },
   computed:{
     ...mapState(['songlist',]),
-    ...mapGetters(('changState'))
+    // ...mapGetters(('changState'))
   },
   methods: {
     ...mapMutations(['addSongList','changeSong','changeScreen']), 

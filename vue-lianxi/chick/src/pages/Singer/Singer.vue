@@ -157,6 +157,7 @@ export default {
   created() {
     singerList().then((res) => {
       //将请求的数据像目标格式转换
+      // console.log(res)
       this.singers = getData(res.data.list);
     });
   },

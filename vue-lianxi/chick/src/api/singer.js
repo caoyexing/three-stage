@@ -66,7 +66,7 @@ export const getSongPurl = ()=>{
     }
     axios.get(url,{params:data})
     .then((data)=>{
-      console.log(data)
+      // console.log(data)
     })
     .catch((err)=>{
       reject(err)

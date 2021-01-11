@@ -25,7 +25,6 @@ export default new Vuex.Store({
   },
   modules: {
   },
- 
   getters:{
     changeState(state){
       return state.songlist[state.currentSong]
