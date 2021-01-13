@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Recommend from '../pages/Recommend.vue'
 import Singer from '../pages/Singer/Singer.vue'
 import Rank from '../pages/Rank.vue'
-import Search from '../pages/Search.vue'
+import Search from 'pages//Search/Search.vue'
 import Detail from '../pages/Detail/Detail.vue'
 
 Vue.use(VueRouter)
