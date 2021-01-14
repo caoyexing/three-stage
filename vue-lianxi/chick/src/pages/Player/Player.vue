@@ -1,7 +1,10 @@
 <template>
   <div class="player" v-if="songlist.length">
     <div class="top" v-if="fullScreen">
-      <i class="iconfont iconxiangxia" @click="changeScreen(flase)"></i>
+      <div  @click="changeScreen(false)">
+        <i class="iconfont iconxiangxia"></i>
+      </div>
+      
       <h2 class="title">{{ changeState.songname }}</h2>
       <h3
         class="subtitle"
@@ -26,7 +29,7 @@ export default {
   data(){
     return{
       // 用一个值控制转圈的状态
-      isPlay:false
+      isPlay:false,
     }
   },
   computed: {
@@ -39,9 +42,11 @@ export default {
   },
   methods: {
     ...mapMutations(["changeScreen"]),
+   
   },
   created(){
-    getSongPurl()
+    // getSongPurl()
+    
   }
 };
 </script>

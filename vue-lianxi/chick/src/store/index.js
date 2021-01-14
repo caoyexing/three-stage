@@ -8,6 +8,8 @@ export default new Vuex.Store({
     songlist:[],//播放的歌曲列表 判断的是length 
     fullScreen:true,//是否充满全屏
     currentSong:-1,//当前播放的是哪首歌
+    iLike:['1'],
+    iListen:[]
 
   },
   mutations: {

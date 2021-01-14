@@ -7,14 +7,20 @@
       />
       <h1 class="text">Chicken Music</h1>
     </div>
-    <div class="mine">
+    <div class="mine" @click="mine">
       <i class="iconfont iconwode2"></i>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    mine(){
+      this.$router.push('/user')
+    }
+  }
+};
 </script>
 
 <style lang="less" scoped>
