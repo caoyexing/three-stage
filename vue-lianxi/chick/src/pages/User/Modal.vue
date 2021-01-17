@@ -6,6 +6,17 @@
       <p>密码:<input class="ipt" type="text" v-model="pass"/> </p>
       <button @click="signIn">登录</button>
     </div>
+    <div class="box">
+      <h2>多选框</h2>
+      <input type="checkbox" v-model="sub" value="vue">vue
+      <input type="checkbox" v-model="sub" value="react">react
+      <input type="checkbox" v-model="sub" value="jq">jq
+      <button @click="submit()">多选</button>
+      <h2>记住用户名</h2>
+      <input type="checkbox" v-model="rem">
+      <button @click="remember()">rem</button>
+    </div>
+    
   </div>
 </template>
 
@@ -16,7 +27,9 @@ export default {
     return{
       state:true,
       name:'',
-      pass:''
+      pass:'',
+      sub:[],
+      rem:false
     }
   },
   methods:{
@@ -27,12 +40,18 @@ export default {
       if(this.name=='' || this.pass==''){
         Toast({
           message: '请输入',
-          position: 'bottom',
-          duration: 5000
+          position: 'top',
+          duration: 1000
         });
       }
-      // console.log(this.name,this.pass)
     },
+    // 提交按钮
+    submit(){
+      console.log(this.sub)
+    },
+    remember(){
+      console.log(this.rem)
+    }
   }
 
 }
@@ -73,6 +92,10 @@ export default {
       outline: none;
     }
   }
+  .box{
+    background-color: #fff;
+  }
+ 
 }
 
 </style>

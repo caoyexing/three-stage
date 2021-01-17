@@ -6,6 +6,14 @@ import store from './store'
 import './style/reset.css'
 // 动画
 // import './style/animate.css'
+
+// mint ui
+// 全局引入
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
+
+
 Vue.config.productionTip = false
 new Vue({
   router,

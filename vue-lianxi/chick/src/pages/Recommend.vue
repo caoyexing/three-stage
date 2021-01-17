@@ -23,6 +23,7 @@
 import banner from "../components/banner";
 import { getList } from "../api/recommend";
 import BS from "better-scroll";
+import { Indicator } from 'mint-ui'
 export default {
   components: {
     banner,
@@ -43,8 +44,13 @@ export default {
     },
   },
   created() {
+    Indicator.open({
+      text: '加载中...',
+      spinnerType: 'fading-circle'
+    });
     getList().then((res) => {
       this.list = res.data;
+      Indicator.close()
     });
   },
   // mounted() {

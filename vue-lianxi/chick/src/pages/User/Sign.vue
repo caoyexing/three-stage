@@ -76,13 +76,7 @@ export default {
       this.$refs.cont.style.display = 'none'
       this.$refs.like.style.display = 'block'
     }
-    // if(this.listen.length === 0 ){
-    //   this.$refs.cont.style.display = 'block'
-    //   this.$refs.listen.style.display = 'none'
-    // }else{
-    //    this.$refs.cont.style.display = 'none'
-    //   this.$refs.listen.style.display = 'block'
-    // }
+    
   }
 }
 </script>

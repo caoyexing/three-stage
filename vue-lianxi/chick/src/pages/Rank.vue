@@ -1,12 +1,14 @@
 <template>
   <div class="rank">
-    Rank
+    
   </div>
 </template>
 
 <script>
-export default {
+import { Toast } from 'mint-ui';
 
+export default {
+  
 }
 </script>
 
