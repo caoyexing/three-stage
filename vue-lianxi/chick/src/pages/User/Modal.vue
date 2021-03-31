@@ -2,19 +2,29 @@
 <!-- 点击在谁的身上 事件绑定在谁的身上 -->
   <div class="modal" @click.self="goback()">
     <div class="center" v-show="state" >
-      <p>姓名:<input class="ipt" type="text" v-model="name" /> </p>
-      <p>密码:<input class="ipt" type="text" v-model="pass"/> </p>
+      <p>姓名:<input class="ipt" type="text" v-model="name" placeholder="hello"/> </p>
+      <p>密码:<input class="ipt" type="text" v-model="pass" placeholder="world"/> </p>
       <button @click="signIn">登录</button>
     </div>
     <div class="box">
       <h2>多选框</h2>
+      <!-- group -->
       <input type="checkbox" v-model="sub" value="vue">vue
       <input type="checkbox" v-model="sub" value="react">react
       <input type="checkbox" v-model="sub" value="jq">jq
       <button @click="submit()">多选</button>
       <h2>记住用户名</h2>
+      <!-- bloon -->
       <input type="checkbox" v-model="rem">
       <button @click="remember()">rem</button>
+      <h2>单选</h2> 
+      <!-- string -->
+      <input type="radio" v-model='sing' value='vue'/>vue
+      <input type="radio" v-model='sing' value="react"/>react
+      <input type="radio" v-model='sing' value="jq"/>jq
+      <button @click="single()">单选</button>
+      <h2>购物车</h2>
+      
     </div>
     
   </div>
@@ -29,7 +39,8 @@ export default {
       name:'',
       pass:'',
       sub:[],
-      rem:false
+      rem:false,
+      sing:''
     }
   },
   methods:{
@@ -43,14 +54,24 @@ export default {
           position: 'top',
           duration: 1000
         });
+      }else{
+        // jsonp.parse JSON.stringify转化为字符串
+      localStorage.setItem('name',this.name)
+      localStorage.setItem('pass',this.pass)
+      console.log(typeof localStorage.getItem('name'))
       }
     },
-    // 提交按钮
+    //多选
     submit(){
       console.log(this.sub)
     },
+    // 记住密码
     remember(){
       console.log(this.rem)
+    },
+    // 单选
+    single(){
+      console.log(this.sing)
     }
   }
 

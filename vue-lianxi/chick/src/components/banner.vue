@@ -15,7 +15,9 @@
 </template>
 
 <script>
+// js
 import Swiper from "swiper";
+// css
 import "swiper/dist/css/swiper.min.css";
 export default {
   // 数据是网络请求回来的 是父组件传递过来的 进行接受
