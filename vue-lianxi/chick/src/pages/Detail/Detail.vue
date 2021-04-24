@@ -105,7 +105,7 @@ export default {
     },
   },
   created() {
-    // 传入的参数接受 请求数据
+    // 传入的参数接受 请求数据 singer页面跳转 detail 页面的 id /singer/mid
     let { mid } = this.$route.params;
     // console.log(mid)
     getDetail(mid).then((res) => {

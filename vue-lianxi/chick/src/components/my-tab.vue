@@ -44,6 +44,7 @@ export default {
     text-align: center;
     line-height: 44px;
     font-size: 14px;
+    color: #ddd;
     span{
       padding-bottom: 5px;
     }

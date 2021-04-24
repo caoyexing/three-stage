@@ -1,12 +1,12 @@
 <template>
-  <div class="like">
-   I Like
+  <div class="comingSoon">
+    comingSoon
   </div>
 </template>
 
 <script>
 export default {
-
+ 
 }
 </script>
 

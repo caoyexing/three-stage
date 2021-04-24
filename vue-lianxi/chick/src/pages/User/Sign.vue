@@ -26,14 +26,12 @@
       <div class="base">
       </div>
     </div>
-    <!-- like -->
     <div class="wrapper">
        <div class="like" v-if="selIndex===0" ref="like">
-      我喜欢的
+         <Like></Like>
       </div>
-      <!-- listen -->
       <div class="listen" v-if="selIndex===1" ref="listen">
-        最近听的
+        <Listen></Listen>
       </div>
     </div>
    
@@ -45,12 +43,16 @@ import Like from './Like.vue'
 import Listen from './Listen'
 import {mapState} from 'vuex'
 export default {
+  components:{
+    Like,
+    Listen
+  },
   data(){
       return{
         tabs:[
-          {name:'我喜欢的'},
-           {name:'最近听的'}],
-           selIndex:0
+          {name:'我喜欢的',component:Like},
+          {name:'最近听的',component:Listen}],
+        selIndex:0
       }
   },
   computed:{
@@ -66,16 +68,17 @@ export default {
     goSign(){
       console.log('1')
       this.$router.push('/modal')
-    }
+    },
+  
   },
   mounted(){ 
-    if(this.iLike.length === 0){
-      this.$refs.cont.style.display = 'block'
-      this.$refs.like.style.display = 'none'
-    }else{
-      this.$refs.cont.style.display = 'none'
-      this.$refs.like.style.display = 'block'
-    }
+    // if(this.iLike.length === 0){
+    //   this.$refs.cont.style.display = 'block'
+    //   this.$refs.like.style.display = 'none'
+    // }else{
+    //   this.$refs.cont.style.display = 'none'
+    //   this.$refs.like.style.display = 'block'
+    // }
     
   }
 }

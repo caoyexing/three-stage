@@ -9,11 +9,14 @@ import Sign from 'pages/User/Sign.vue'
 import Modal from 'pages/User/Modal'
 Vue.use(VueRouter)
 //根据的是地址栏的改变 显示对应的组件
+// 内部的路由也是可以重定向 
 const routes = [
   {path:'/recommend',component:Recommend},
   {path:'/singer',component:Singer,
     children:[
-      {path:':mid',component:Detail}
+      //跳转详情页 /singer/mid
+      {path:':mid',component:Detail},
+      // {path:*',redirect:Recommend}
     ]
 
   },

@@ -128,6 +128,7 @@ export default {
     // better-scroll 滚动的页面 点击事件是阻止的 要在配置项里打开
     jump(mid){
       // console.log(mid)
+      // 页面跳转到detail页面 拼接的地址栏
       this.$router.push(`/singer/${mid}`)
     },
     // better-scroll 初始化
