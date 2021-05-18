@@ -33,6 +33,7 @@
 
 <script>
 import { filmsList } from "../../api/films";
+import {mapState,mapMutations} from 'vuex'
 import Vue from "vue";
 Vue.filter("star", (actors) => {
   // console.log(actors)
@@ -52,31 +53,33 @@ export default {
       total: 0, //总数据条数
     };
   },
+  computed:{
+    ...mapState('CityModule',['name','cityId'])
+  },
   mounted() {
    
     //  列表请求
     // ajax 请求
     // 请求数据的拼接
     // onloade 函数
-    filmsList(this.current).then((res) => {
+    filmsList(this.current,this.cityId).then((res) => {
       this.datalist = res.data.films;
       this.total = res.data.total;
-      
     });
   },
   methods: {
     // immediate-check   第一次的load 不触发
+    // 当页面销毁的时候 会重新弄创建 触发onload事件 导致 datalist和totel的数据都是0 
+    // 只能请求一页的数据finished = true 了
     onLoad() {
-      if (this.datalist.length === this.total) {
+      if (this.datalist.length === this.total && this.datalist.length !== 0) {
         this.finished = true;
         return false;
       }
       console.log("load");
       this.current++;
-
-      filmsList(this.current).then((res) => {
+      filmsList(this.current,this.cityId).then((res) => {
         this.datalist = [...this.datalist, ...res.data.films];
-
         this.loading = false;
       });
     },

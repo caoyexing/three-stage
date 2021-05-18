@@ -8,7 +8,14 @@ module.exports = {
             target: 'https://m.maoyan.com',
             // 允许跨域
             changeOrigin: true,
-        }
+        },
+        '/napi': {
+          // 此处的写法，目的是为了 将 /api 替换成 https://www.baidu.com/
+          target: 'https://www.duitang.com',
+          // 允许跨域
+          changeOrigin: true,
+      }
+
     }
 }
 }

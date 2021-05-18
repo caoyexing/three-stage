@@ -90,6 +90,7 @@ import moment from "moment";
 import DetailSwiper from "./details/DetailSwiper";
 import DetailHeader from "./details/DetailHeader";
 import { ImagePreview, Toast } from "vant";
+import {mapMutations} from 'vuex'
 Vue.filter("datafilter", (data) => {
   return moment(data * 1000).format("YYYY-MM-DD");
 });
@@ -127,11 +128,7 @@ export default {
     };
   },
   mounted() {
-    Toast.loading({
-      message: "加载中...",
-      // forbidClick: true,
-      duration:0
-    });
+    this.hide(false)
     // 跳转 id
     let { mid } = this.$route.params;
     getInfo(mid).then((res) => {
@@ -141,7 +138,11 @@ export default {
       Toast.clear()
     });
   },
+  beforeDestroy(){
+    this.show(true)
+  },
   methods: {
+    ...mapMutations('TabModule',['show','hide']),
     imageBig(index) {
       // 图片预览
       ImagePreview({

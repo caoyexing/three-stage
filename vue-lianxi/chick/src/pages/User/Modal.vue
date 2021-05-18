@@ -39,8 +39,8 @@ export default {
       name:'',
       pass:'',
       sub:[],
-      rem:false,
-      sing:''
+      rem:true,
+      sing:'vue'
     }
   },
   methods:{
@@ -63,11 +63,16 @@ export default {
     },
     //多选
     submit(){
-      console.log(this.sub)
+      
+      if(this.sub.length ===0){
+        this.sub = ['vue','react','jq']
+      }else{
+        this.sub = []
+      }
     },
     // 记住密码
     remember(){
-      console.log(this.rem)
+      this.rem = !this.rem
     },
     // 单选
     single(){

@@ -1,5 +1,5 @@
 <template>
-  <div class="tab">
+  <div class="tab" v-show="isTab">
     <ul>
       <router-link v-for="(item,index) in tabs" 
       :key='index' 
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   data(){
     return{
@@ -24,6 +25,9 @@ export default {
         {name:'我的',path:'/center',icon:'iconwode2'}
       ]
     }
+  },
+  computed:{
+    ...mapState('TabModule',['isTab'])
   }
 
 }

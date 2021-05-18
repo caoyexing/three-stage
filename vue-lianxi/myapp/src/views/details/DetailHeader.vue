@@ -27,7 +27,6 @@ export default {
   background-color: white;
   line-height: 50px;
   text-align: center;
-  // // position: relative;
   .goBack{
     display: inline-block;
     position:fixed;
@@ -35,7 +34,6 @@ export default {
     left: 20px;
     height: 30px;
     width: 30px;
-    // background-color: yellow;
     line-height: 30px;
     text-align: center;
     i{

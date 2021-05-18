@@ -8,6 +8,7 @@ import nowPlaying from '../views/films/nowPlaying.vue'
 import comingSoon from '../views/films/comingSoon.vue'
 import Detail from '../views/Detail.vue'
 import City from '../views/City.vue'
+import Search from '../views/Search.vue'
 
 // 异步引入 路由懒加载 访问页面的时候进行数据的请求 
 const Center = ()=> import ('../views/Center.vue')
@@ -28,6 +29,11 @@ const routes = [
   {
     path:'/cinema',
     component:Cinema
+  },
+  // 不是父子关系  是兄弟关系 一个创建一个销毁
+  {
+    path:'/cinema/search',
+    component:Search
   },
   {
     path:'/center',

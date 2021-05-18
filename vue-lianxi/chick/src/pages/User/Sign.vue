@@ -79,6 +79,9 @@ export default {
     //   this.$refs.cont.style.display = 'none'
     //   this.$refs.like.style.display = 'block'
     // }
+
+    // ;error_log = log/php-fpm.log
+    // ;pid = run/php-fpm.pid
     
   }
 }

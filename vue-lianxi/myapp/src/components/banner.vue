@@ -1,6 +1,7 @@
 <template>
   <div class="swiper-container">
     <div class="swiper-wrapper">
+      <!-- 插槽 可以直接将内容 写进去 -->
       <slot></slot>
     </div>
     <!-- 分页 -->

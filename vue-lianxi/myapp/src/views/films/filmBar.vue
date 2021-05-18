@@ -1,7 +1,9 @@
 <template>
   <div class="filmBar">
     <ul>
-        <router-link to="/films/nowPlaying" tag="li" active-class="sel">
+        <router-link to="/films/nowPlaying" tag="li" active-class="sel"
+       
+        >
         <span>正在热映</span>
         </router-link>
         <router-link to="/films/comingSoon" tag="li" active-class="sel">
