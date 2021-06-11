@@ -90,7 +90,7 @@ import moment from "moment";
 import DetailSwiper from "./details/DetailSwiper";
 import DetailHeader from "./details/DetailHeader";
 import { ImagePreview, Toast } from "vant";
-import {mapMutations} from 'vuex'
+import {mapMutations, mapState} from 'vuex'
 Vue.filter("datafilter", (data) => {
   return moment(data * 1000).format("YYYY-MM-DD");
 });
@@ -127,7 +127,11 @@ export default {
       isshow: false,
     };
   },
+  computed:{
+    ...mapState('TabModule',['isTab'])
+  },
   mounted() {
+    // console.log(this.isTab)
     this.hide(false)
     // 跳转 id
     let { mid } = this.$route.params;
