@@ -5,8 +5,9 @@
 
   },
   mutations: {
-    
-
+    addCart(state,data){
+      state.cartList.push(data)
+    }
   },
   actions: {
     

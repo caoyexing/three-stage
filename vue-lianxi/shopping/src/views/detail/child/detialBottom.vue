@@ -24,8 +24,10 @@
 </template>
 
 <script>
+import {mapState,mapMutations} from 'vuex'
 export default {
   methods:{
+    ...mapMutations('cartModule','addCart'),
     addCart(){
       console.log('add')
     }

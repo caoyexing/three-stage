@@ -30,7 +30,7 @@ export default {
   watch: {
     detailInfo() {
       this.imagesLength = this.detailInfo.detailImage[0].list.length;
-      console.log(this.imagesLength)
+      // console.log(this.imagesLength)
     },
   },
   destroyed(){
