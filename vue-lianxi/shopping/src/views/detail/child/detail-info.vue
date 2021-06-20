@@ -11,14 +11,13 @@
     <div class="other" v-if="goods">
       <span>{{goods.columns[0]}}</span>
       <span>{{goods.columns[1]}}</span>
-      <span>{{goods.services[3].name}}</span>
+      <span>{{goods.services[2].name}}</span>
     </div>
     <div class="services">
       <span v-for="index in goods.services.length-1" :key=index>
         <img :src="goods.services[index-1].icon" alt="" >
         <span>{{goods.services[index-1].name}}</span>
       </span>
-      <!-- {{goods}} -->
     </div>
   </div>
 </template>
@@ -33,7 +32,9 @@ export default {
       }
     }
   },
- 
+ updated(){
+  //  console.log(this.goods)
+ }
 }
 </script>
 

@@ -1,5 +1,7 @@
 import backTop from 'components/backTop.vue'
 
+// 导出的是对象 import {} from '' 
+
 export const backtopMixins ={
   components:{
     backTop
@@ -16,7 +18,7 @@ export const backtopMixins ={
 
   },
   mounted(){
-    console.log('minxins')
+    // console.log('minxins')
   }
 
 }

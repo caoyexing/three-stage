@@ -1,9 +1,12 @@
 <template>
   <div id="app">
      <Tab ></Tab>
-       <section>
+     <keep-alive>
+        <section>
         <router-view ></router-view>
      </section>
+     </keep-alive>
+      
   </div>
 </template>
 <script>

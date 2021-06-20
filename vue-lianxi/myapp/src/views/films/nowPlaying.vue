@@ -36,7 +36,7 @@ import { filmsList } from "../../api/films";
 import {mapState,mapMutations} from 'vuex'
 import Vue from "vue";
 Vue.filter("star", (actors) => {
-  // console.log(actors)
+  console.log(actors)
   return actors
     .map((item) => {
       return item.name;

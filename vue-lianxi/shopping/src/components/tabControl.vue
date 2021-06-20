@@ -40,6 +40,7 @@ export default {
   text-align: center;
   background-color: #fff;
   border-bottom: 2px solid #eee;
+  
   .control-item{
     flex: 1;
     span{

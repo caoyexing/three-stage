@@ -26,7 +26,7 @@ export default {
     }
   },
   created(){
-    this.heigth = document.documentElement.clientHeight - 103 + 'px'
+    this.heigth = document.documentElement.clientHeight - 106+ 'px'
   },
   mounted(){
     // 1.创建scroll对象
@@ -45,9 +45,12 @@ export default {
     })
     }
     // 3.监听滚动到底部 加载
-    this.scroll.on('pullingUp',()=>{
+    if(this.pullUpLoad){
+       this.scroll.on('pullingUp',()=>{
       this.$emit('pullingUp')
     })
+    }
+   
   },
  
 
@@ -56,5 +59,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-
+.main{
+  overflow: hidden;
+}
 </style>

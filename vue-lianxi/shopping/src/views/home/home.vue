@@ -2,7 +2,7 @@
   <div class="home" >
     <!-- title -->
     <nav-bar class="navtab" >
-      <div class="title" slot='center'>购物街{{$store.state.isShowTab}}</div>
+      <template class="title" #center>购物街{{$store.state.isShowTab}}</template>
     </nav-bar>
     <tabControl 
         :title="['流行','新款','精选']" 
@@ -30,7 +30,6 @@
       <!-- tabControl -->
       <tabControl 
         :title="['流行','新款','精选']" 
-        style="position:sticky;top:49px"
         @tabClick="tabClick"
         ref="tabControl2"
        ></tabControl>
@@ -49,7 +48,6 @@ import NavBar from "@/components/navbar.vue";
 import tabControl from "@/components/tabControl";
 import Goodlist from "@/components/Good/Goodlist.vue";
 import BetterScroll from 'components/bs.vue'
-import BackTop from 'components/backTop.vue'
 
 import Swiper from "./Hswiper";
 import Recommend from "./Hrecommend";
@@ -180,6 +178,10 @@ export default {
         this.$refs.scrollt.scroll.finishPullUp()
       });
     },
+  },
+  activated(){
+    console.log('refresh')
+    // this.$refs.scrollt.scroll.refresh()
   },
   destroyed(){
     this.$bus.$off('loadimg')

@@ -18,4 +18,7 @@ const module ={
   }
  
 }
+
+// 导出的模块  import module from ''
+
 export default module

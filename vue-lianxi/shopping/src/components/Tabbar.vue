@@ -44,7 +44,7 @@ export default {
   padding-top: 6px;
   box-shadow: 0 -1px 1px rgba(100,100,100,.9);
   background-color: #fff;
-  z-index: 9;
+  z-index: 999;
   ul{
     display: flex;
     li{

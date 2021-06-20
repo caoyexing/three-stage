@@ -1,13 +1,14 @@
 <template>
   <div class="detail" >
     <detail-nav @tabclick="tabclick" ref="nav"></detail-nav>
+    
     <better-scroll 
     :pull-up-load="true" 
     ref="scroll" 
     :probe-type='3'
     @backscroll='domscroll'
     
-    >
+    > 
       <detail-swiper :imgSwiper="imgSwiper" ref="shangpin"></detail-swiper>
       <detail-info :goods="goods"></detail-info>
       <detail-shop :shop="shop"></detail-shop>
@@ -16,14 +17,15 @@
       <detail-evaluate :evaluate="evaluate" ref="pinglun"></detail-evaluate>
       <Good-list :showgood="recommend" ref="tuijian"></Good-list>
     </better-scroll>
-    <detail-bottom></detail-bottom>
+    <detail-bottom @addCart=addCart @goShop='goShop'></detail-bottom>
     <back-top v-show="isshow" @click.native="backtop"></back-top>
+    <!-- <toast :message='message' :ismessage='ismessage'></toast> -->
   </div>
 </template>
 
 <script>
 import { getDetail, Goods, Shop, Params, getRecommend } from "@/api/detail.js";
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 import detailNav from "./child/detailNav";
 import detailSwiper from "./child/detailSwiper";
@@ -37,6 +39,7 @@ import detailBottom from './child/detialBottom'
 import betterScroll from "components/bs.vue";
 import GoodList from "components/Good/Goodlist";
 import backTop from 'components/backTop.vue'
+import toast from 'components/toast/toast.vue'
 import {backtopMixins} from 'components/mixins/mixins.js'
 
 export default {
@@ -51,7 +54,8 @@ export default {
     detailEvaluate,
     GoodList,
     detailBottom,
-    backTop
+    backTop,
+    toast
   },
   minxins:[backtopMixins],
   data() {
@@ -65,11 +69,15 @@ export default {
       evaluate: null,
       recommend: [],
       domScrollY: [],
-      isshow :false
+      isshow :false,
+      message:'',
+      ismessage:false
+
     };
   },
   computed: {
     ...mapState("DetailModule", ["isTabShow"]),
+    ...mapState('cartModule',['cartList'])
   },
   created() {
     // 下部导航栏的隐藏
@@ -117,6 +125,9 @@ export default {
   },
   methods: {
     ...mapMutations("DetailModule", ["TabShow", "TabHide"]),
+    // ...mapMutations('cartModule',['addCartM']),
+    ...mapActions('cartModule',['addCartM']),
+    // 图片加载完成 获取高度 
     detailimg() {
       this.$refs.scroll.scroll.refresh();
       this.domScrollY = [];
@@ -127,9 +138,11 @@ export default {
       // console.log(this.domScrollY);
       
     },
+    // 点击索引切换 到具体的位置
     tabclick(index) {
       this.$refs.scroll.scroll.scrollTo(0,-this.domScrollY[index],1000)
     },
+    // 滚动显示索引
      domscroll(pos){
       //  console.log(pos)
       if(Math.abs(pos.y)>1000){
@@ -147,9 +160,38 @@ export default {
        }
       }
     },
+    // 返回顶部
     backtop(){
-      this.$refs.scrollt.scroll.scrollTo(0,0,500)
+      this.$refs.scroll.scroll.scrollTo(0,0,500)
+    },
+    //加入购物车
+    addCart(){
+      // 将购物车需要的信息加入到product中
+      let product = {}
+      product.image = this.imgSwiper[0]
+      product.title = this.goods.title
+      product.desc = this.goods.desc
+      product.price = this.goods.newPrice
+      product.iid = this.uid
+      
+      this.addCartM(product).then((res)=>{
+        console.log(res)
+        // this.ismessage = true
+        // this.message = res
+        // setTimeout(()=>{
+        //   this.ismessage = false
+        //   this.message =''
+        // },1000)
+        // 自己封装的toast插件
+        this.$toast.show(res)
+        
+      })
+      // console.log(this.cartList)
+    },
+    goShop(){
+      console.log('结算')
     }
+
     
   },
   beforeDestroy() {

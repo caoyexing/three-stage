@@ -17,7 +17,7 @@
       <td >{{item.value}}</td>
     </tr>
   </table>
-  <div v-if="detailParams.image.length !== 0">
+  <div v-if="detailParams.image.length !== 0" class="paramsimg">
     <img :src="detailParams.image" alt="">
   </div>
   </div>
@@ -61,6 +61,9 @@ export default {
 .info tr td{
   border-bottom: 1px solid #ddd;
 }
-
+.paramsimg img{
+  height: 200px;
+  width: 100%;
+}
 
 </style>

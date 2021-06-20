@@ -1,6 +1,6 @@
 <template>
   <div class="good-item" @click="jumpdetail(listItem.iid)">
-    <img :src="showImg" alt="" @load="loadimg">
+    <img v-lazy="showImg" alt="" @load="loadimg">
     <div class="info">
       <p class="des">{{listItem.title}}</p>
       <span>{{listItem.price}}</span>

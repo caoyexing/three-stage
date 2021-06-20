@@ -17,19 +17,20 @@
     <div class="center">
       <p @click="addCart">加入购物车</p>
     </div>
-    <div class="right">
-      <p>购买</p>
+    <div class="right" >
+      <p @click="goShop">购买</p>
     </div>
   </div>
 </template>
 
 <script>
-import {mapState,mapMutations} from 'vuex'
 export default {
   methods:{
-    ...mapMutations('cartModule','addCart'),
     addCart(){
-      console.log('add')
+      this.$emit('addCart')
+    },
+    goShop(){
+      this.$emit('goShop')
     }
   },
   
